@@ -22,19 +22,19 @@ const taxProgressionSingle2024 = [
 const taxProgressionSingleOld = [
   [1100,0.5],
   [2200,1],
-  [2700,2],
-  [3700,3],
-  [4800,3.25],
-  [5400, 3.5],
-  [5400,4],
-  [7500,4.5],
-  [10800,5.5],
-  [12400,5.5],
-  [14000,8],
-  [18900,11.5],
-  [23700,11.75],
-  [28000,10],
-  [140600,8],
+  [2800,2],
+  [3800,3],
+  [5000,3.25],
+  [5600, 3.5],
+  [5600,4],
+  [7800,4.5],
+  [11100,5.5],
+  [12900,5.5],
+  [14500,8],
+  [19500,11.5],
+  [24500,11.75],
+  [28900,10],
+  [145300,8],
 ]
 
 const calculateTax = (year, income) => {
@@ -51,25 +51,32 @@ const calculateTax = (year, income) => {
   }
 
   while (income > 0) {
-    const [threshold, rate] = lookupToUse[iteration] || []
-    const toTax = income - threshold
+    const maxTax = lookupToUse[lookupToUse.length -1]
 
-    if (iteration === lookupToUse.length - 1) {
-      tax += income / 100 * lookupToUse[iteration][1]
-    }
-
-    if (toTax > 0 && iteration < lookupToUse.length - 1) {
-      tax += toTax / 100 * rate
-    } else {
-      tax += income / 100 * rate
+    if (income > maxTax[0]) {
+      tax += income / 100 * maxTax[1]
       break
     }
 
-    income -= toTax
+    const [threshold, rate] = lookupToUse[iteration] || []
+    const remaining = income - threshold
+    let taxPerLevel = 0
+
+    if (remaining >= 0) {
+      taxPerLevel += threshold / 100 * rate
+      tax += taxPerLevel
+      console.log(year, iteration, rate, taxPerLevel)
+    } else {
+      taxPerLevel += income / 100 * rate
+      console.log(year, iteration, rate, taxPerLevel)
+      break
+    }
+
+    income -= threshold
     iteration++
   }
 
-  return tax
+  return tax.toFixed(2)
 }
 
 function App() {
@@ -90,17 +97,29 @@ function App() {
   return (
     <div className="App">
       <input type="number" onChange={onChange} />
-      <div>
-        <span>Your taxes 2024:</span>
-        <span>
-          {tax2024}
-        </span>
+      <div className="summary">
+        <div className="taxes">
+          <span className="label">Your taxes 2024:</span>
+          <span>
+            {tax2024}
+          </span>
+        </div>
       </div>
-      <div>
-        <span>Your taxes 2023:</span>
-        <span>
-          {tax2023}
-        </span>
+      <div className="summary">
+        <div className="taxes">
+          <span className="label">Your taxes 2023:</span>
+          <span>
+            {tax2023}
+          </span>
+        </div>
+      </div>
+      <div className="summary">
+        <div className="taxes">
+          <span className="label">Savings</span>
+          <span>
+            {Number(tax2023 - tax2024).toFixed(2)}
+          </span>
+        </div>
       </div>
     </div>
   );
