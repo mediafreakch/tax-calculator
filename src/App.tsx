@@ -1,5 +1,5 @@
 import './App.css';
-import {useCallback, useMemo, useState} from "react";
+import {ChangeEvent, useCallback, useMemo, useState} from "react";
 
 const taxProgressionSingle2024 = [
   [1100, 0.475],
@@ -37,7 +37,7 @@ const taxProgressionSingleOld = [
   [145300,8],
 ]
 
-const calculateTax = (year, income) => {
+const calculateTax = (year: number, income: number): number => {
   let lookupToUse
   let tax = 0
   let iteration = 0
@@ -76,13 +76,13 @@ const calculateTax = (year, income) => {
     iteration++
   }
 
-  return tax.toFixed(2)
+  return Number(tax.toFixed(2))
 }
 
 function App() {
-  const [income, setIncome] = useState(null)
+  const [income, setIncome] = useState<number | null>(null)
 
-  const onChange = useCallback((e) => {
+  const onChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setIncome(Number(e.target.value))
   }, [])
 
