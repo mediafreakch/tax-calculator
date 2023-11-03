@@ -19,6 +19,7 @@ input[type=number] {
   border-bottom-right-radius: 50%;
   max-width: var(--max-width);
   height: 50vh;
+  min-height: 600px;
   margin: 0 auto;
   padding: 6px;
 }
