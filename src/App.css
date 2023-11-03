@@ -1,17 +1,60 @@
 body {
   padding: 16px;
+  --max-width: 600px;
 }
 
 input[type=number] {
   display: block;
   margin: 6px auto;
+  padding: 6px;
+  border: 1px solid #a8a7a7cf;
+  border-radius: 4px;
+  box-shadow: 2px 2px 3px rgba(121, 121, 121, 0.8);
+}
+
+.app {
+  background: linear-gradient(to bottom, #fff 33%, #1e54c0 33%, #1e54c0 66%, #fff 66%);
+  border: 2px solid #1e54c0;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  max-width: var(--max-width);
+  height: 50vh;
+  margin: 0 auto;
+  padding: 6px;
+}
+
+h1, h2, p {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  max-width: var(--max-width);
+}
+
+h1 {
+  text-transform: uppercase;
+  color: #1e54c0;
+}
+
+h2 {
+  color: #797979;
+  font-size: 1.3rem;
+}
+
+.calculator {
+  margin: 0 auto;
+  max-width: var(--max-width);
+  padding: 16px;
+  border-radius: 4px;
 }
 
 .summary {
-  margin: 10px auto;
+  margin: 0 auto;
+  padding: 8px;
+  max-width: calc(var(--max-width) / 2);
+}
 
-  background: #f2f2f2;
-  max-width: 300px;
+.summary:last-child {
+  background: coral;
 }
 
 .taxes {

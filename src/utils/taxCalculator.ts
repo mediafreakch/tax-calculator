@@ -78,6 +78,6 @@ export function taxCalculator(year: number) {
       iteration++
     }
 
-    return Number(tax.toFixed(2))
+    return Number(tax.toFixed(0))
   }))
 }
