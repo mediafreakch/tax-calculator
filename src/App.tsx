@@ -53,7 +53,7 @@ const calculateTax = (year: number, income: number): number => {
   while (income > 0) {
     const maxTax = lookupToUse[lookupToUse.length -1]
 
-    if (income > maxTax[0]) {
+    if (iteration === lookupToUse.length - 1) {
       tax += income / 100 * maxTax[1]
       break
     }
