@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Tax difference calculator for Kt. Zug 2022/2023
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/mediafreakch/tax-calculator)
 
 ## Available Scripts
 
