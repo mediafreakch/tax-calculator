@@ -1,6 +1,6 @@
 # Tax difference calculator for Kt. Zug 2022/2023
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/mediafreakch/tax-calculator)
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/mediafreakch/tax-calculator/tree/feature/use-rxjs)
 
 ## Available Scripts
 
