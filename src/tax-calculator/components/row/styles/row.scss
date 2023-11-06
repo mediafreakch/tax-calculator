@@ -1,0 +1,22 @@
+.row {
+  margin: 0 auto;
+  padding: 8px;
+  max-width: calc(var(--max-width) / 2);
+
+  .taxes {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .label + span {
+    font-weight: bold;
+  }
+
+  .label + span:before {
+    content: 'CHF '
+  }
+
+  &:last-child {
+    background: coral;
+  }
+}

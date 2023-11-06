@@ -1,0 +1,29 @@
+
+.tax-calculator {
+  background: linear-gradient(to bottom, #fff 33%, #1e54c0 33%, #1e54c0 66%, #fff 66%);
+  border: 2px solid #1e54c0;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  max-width: var(--max-width);
+  height: 50vh;
+  min-height: 600px;
+  margin: 0 auto;
+  padding: 6px;
+
+
+  input[type=number] {
+    display: block;
+    margin: 6px auto;
+    padding: 6px;
+    border: 1px solid #a8a7a7cf;
+    border-radius: 4px;
+    box-shadow: 2px 2px 3px rgba(121, 121, 121, 0.8);
+  }
+
+  .calculator {
+    margin: 0 auto;
+    max-width: var(--max-width);
+    padding: 16px;
+    border-radius: 4px;
+  }
+}
